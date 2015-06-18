@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Animation</title>
+		<!-- import css -->
+		<link href="css/style.css" rel="stylesheet"/>
+		
+		<!-- import js -->
+		<script src="js/jquery.js"></script>
+		<script src="js/script.js"></script>
+		<script>
+			// animation 
+			$(function(){
+				function slide(){
+					var a = $(".slide").children().eq(0);
+					a.fadeIn(2000);
+					a.fadeOut(2000);
+				}
+				slide();
+				$("img").hover(function(){					
+					$("img").queue(function(){
+						$("img").stop(true);
+						 $("img").dequeue();
+					});
+				});
+				$("img").mouseleave(function(){ 
+					$("img").clearQueue();
+				});
+			});
+		</script>
+		
+	</head>
+	<body>
+		<div class="slide">
+			<img src="images/1.png" class="img2" />		
+			<img src="images/2.png" class="img2" />		
+			<img src="images/3.png" class="img2" />		
+		</div>	
+	</body>
+</html>

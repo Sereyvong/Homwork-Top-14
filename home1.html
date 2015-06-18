@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ADS</title>
+		
+		<!-- import css -->
+		<link href="css/style.css" rel="stylesheet"/>
+		
+		<!-- import js -->
+		<script src="js/jquery.js"></script>
+		<script>
+			$(function(){
+				function loadSlide(i){
+					var a = $(".slide").children().eq(i);
+					a.fadeIn().animate({
+						opacity: '1',
+						width: '500px',
+						left: '250px'
+					},1000);
+					a.animate({						
+						marginLeft: '800px',
+						opacity: '0'
+					},1000);
+					a.fadeOut();
+				}
+				
+				//for(var i=0; i<$(".slide img").length;i++){
+					 loadSlide(1);
+				//}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="slide">
+			<img src="images/1.png" class="img1" />		
+			<img src="images/2.png" class="img1" />		
+			<img src="images/3.png" class="img1" />		
+		</div>																
+	</body>
+</html>
