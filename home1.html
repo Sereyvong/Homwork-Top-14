@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>ADS</title>
+		<title>Homework 1</title>
 		
 		<!-- import css -->
 		<link href="css/style.css" rel="stylesheet"/>
@@ -9,23 +9,25 @@
 		<!-- import js -->
 		<script src="js/jquery.js"></script>
 		<script>
-			$(function(){
+			$(function(){				
 				function loadSlide(i){
+					var width = $(window).width(); // get width
 					var a = $(".slide").children().eq(i);
+					var widthImg = 800;
 					a.fadeIn().animate({
 						opacity: '1',
-						width: '500px',
+						width: widthImg+'px',
 						left: '250px'
-					},1000);
+					},2000);
 					a.animate({						
-						marginLeft: '800px',
+						marginLeft: width-widthImg+'px',
 						opacity: '0'
-					},1000);
+					},2000);
 					a.fadeOut();
 				}
 				
 				//for(var i=0; i<$(".slide img").length;i++){
-					 loadSlide(1);
+					loadSlide(1);
 				//}
 			});
 		</script>

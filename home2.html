@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Animation</title>
+		<title>Homework 2</title>
 		<!-- import css -->
 		<link href="css/style.css" rel="stylesheet"/>
 		
@@ -12,29 +12,30 @@
 			// animation 
 			$(function(){
 				function slide(){
-					var a = $(".slide").children().eq(0);
+					var a = $(".slide1").children().eq(0);
 					a.fadeIn(2000);
 					a.fadeOut(2000);
 				}
 				slide();
-				$("img").hover(function(){					
+				$("img").mouseover(function(){					
 					$("img").queue(function(){
 						$("img").stop(true);
 						 $("img").dequeue();
 					});
-				});
-				$("img").mouseleave(function(){ 
+				}).mouseout(function(){ 
 					$("img").clearQueue();
-				});
+				});				
 			});
 		</script>
 		
 	</head>
 	<body>
-		<div class="slide">
-			<img src="images/1.png" class="img2" />		
-			<img src="images/2.png" class="img2" />		
-			<img src="images/3.png" class="img2" />		
-		</div>	
+		<center>
+			<div class="slide1">
+				<img src="images/1.png" class="img2" />		
+				<img src="images/2.png" class="img2" />		
+				<img src="images/3.png" class="img2" />		
+			</div>	
+		</center>
 	</body>
 </html>
