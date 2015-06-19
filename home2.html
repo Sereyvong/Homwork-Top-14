@@ -11,19 +11,24 @@
 		<script>
 			// animation 
 			$(function(){
-				function slide(){
-					var a = $(".slide1").children().eq(0);
+				var i=0;
+				function slide(i,n){
+					var a = $(".slide1").children().eq(i);
 					a.fadeIn(2000);
-					a.fadeOut(2000);
-				}
-				slide();
-				$("img").mouseover(function(){					
-					$("img").queue(function(){
-						$("img").stop(true);
-						 $("img").dequeue();
+					a.fadeOut(2000,function(){ 
+						i++;
+						if(i==n)
+							i=0;
+						slide(i,n);
 					});
-				}).mouseout(function(){ 
-					$("img").clearQueue();
+				}
+				var n=$(".slide1 img").length;
+				slide(0,n);
+				$("img").mouseover(function(){
+					$(this).style
+					$(this).stop(true);
+				}).mouseout(function(){
+					$(this).fadeOut(1000,function(){slide(i,n);});					
 				});				
 			});
 		</script>

@@ -9,8 +9,9 @@
 		<!-- import js -->
 		<script src="js/jquery.js"></script>
 		<script>
-			$(function(){				
-				function loadSlide(i){
+			$(function(){
+				var i=0;
+				function loadSlide(i,n){
 					var width = $(window).width(); // get width
 					var a = $(".slide").children().eq(i);
 					var widthImg = 800;
@@ -23,11 +24,14 @@
 						marginLeft: width-widthImg+'px',
 						opacity: '0'
 					},2000);
-					a.fadeOut();
+					a.fadeOut(1,function(){loadSlide(i,n);});
+					if(i==n){
+						i=0;
+					}
 				}
 				
 				//for(var i=0; i<$(".slide img").length;i++){
-					loadSlide(1);
+					loadSlide(1,$(".slide img").length-1);
 				//}
 			});
 		</script>
