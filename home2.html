@@ -7,7 +7,6 @@
 		
 		<!-- import js -->
 		<script src="js/jquery.js"></script>
-		<script src="js/script.js"></script>
 		<script>
 			// animation 
 			$(function(){
@@ -25,10 +24,15 @@
 				var n=$(".slide1 img").length;
 				slide(0,n);
 				$("img").mouseover(function(){
-					$(this).style
+					$(this).attr("style","display:inline;opacity:1;");
 					$(this).stop(true);
 				}).mouseout(function(){
-					$(this).fadeOut(1000,function(){slide(i,n);});					
+					$(this).fadeOut(1000,function(){
+						var x = $(this).index()+1;
+						if(x==3)
+							x=0;
+						slide(x,n);
+					});					
 				});				
 			});
 		</script>

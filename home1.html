@@ -14,25 +14,24 @@
 				function loadSlide(i,n){
 					var width = $(window).width(); // get width
 					var a = $(".slide").children().eq(i);
-					var widthImg = 800;
+					var widthImg = width-100;
 					a.fadeIn().animate({
 						opacity: '1',
-						width: widthImg+'px',
-						left: '250px'
+						width: widthImg+'px'
 					},2000);
 					a.animate({						
-						marginLeft: width-widthImg+'px',
+						left: '100%',
 						opacity: '0'
 					},2000);
-					a.fadeOut(1,function(){loadSlide(i,n);});
-					if(i==n){
-						i=0;
-					}
+					a.fadeOut(function(){
+						a.attr("style","display:none;opacity:0;");
+						i++;
+						if(i==n)
+							i=0;
+						loadSlide(i,n);
+					});					
 				}
-				
-				//for(var i=0; i<$(".slide img").length;i++){
-					loadSlide(1,$(".slide img").length-1);
-				//}
+				loadSlide(1,$(".slide img").length);
 			});
 		</script>
 	</head>

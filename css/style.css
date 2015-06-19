@@ -1,15 +1,17 @@
 html, body {
 	height: 100%;
 	margin: 0;
+	overflow:hidden;
 }
 .slide1{
 	margin-top:50px;
-	padding-left:100px;
 }
 .img1{
 	display:none;
 	opacity: 0;
 	width:0px;
+	left:0%;
+	position:absolute;
 }
 .img2{
 	display:none;
