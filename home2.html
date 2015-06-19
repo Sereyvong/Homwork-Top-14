@@ -10,30 +10,45 @@
 		<script>
 			// animation 
 			$(function(){
-				var i=0;
+				var i=0; // index of Image
+				
+				// function Slide 
 				function slide(i,n){
-					var a = $(".slide1").children().eq(i);
-					a.fadeIn(2000);
-					a.fadeOut(2000,function(){ 
+					// get image in slide
+					var img = $(".slide1").children().eq(i);
+					// fadeIn Image in slide 
+					img.fadeIn(2000);
+					// fadeOut Image in slide 
+					img.fadeOut(2000,function(){ 
 						i++;
 						if(i==n)
 							i=0;
+						// Call function again 	
 						slide(i,n);
 					});
 				}
+				
+				// count Image in slide
 				var n=$(".slide1 img").length;
+
+				// Call function slide
 				slide(0,n);
+				
+				// event mouseover
 				$("img").mouseover(function(){
 					$(this).attr("style","display:inline;opacity:1;");
 					$(this).stop(true);
-				}).mouseout(function(){
+				}).mouseout(function(){ // event mouseout
 					$(this).fadeOut(1000,function(){
 						var x = $(this).index()+1;
 						if(x==3)
 							x=0;
+							
+						// Call function again 
 						slide(x,n);
 					});					
-				});				
+				});	
+							
 			});
 		</script>
 		
